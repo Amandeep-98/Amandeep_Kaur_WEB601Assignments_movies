@@ -11,6 +11,9 @@ export class ContentListComponent implements OnInit {
   
   movieList: Movie[];
 
+  // addItemList:any = "test";
+
+  genre = "Drama";
 
   constructor() {
 
@@ -40,7 +43,7 @@ export class ContentListComponent implements OnInit {
     {
       id: 3,
       name: "The Lion King",
-      type: ['Animation', 'Adventure', 'Action'],
+      type: ['Animation', 'Adventure', 'Action', "Drama"],
       imageUrl: "../../assets/img/movie4.jpg",
       body: "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
 
@@ -72,11 +75,12 @@ export class ContentListComponent implements OnInit {
     {
       id: 7,
       name: "WALL·E",
-      type: ['Animation', 'Adventure', 'Action'],
+      type: ['Animation', 'Adventure', 'Action', "Drama"],
       imageUrl: "../../assets/img/movie8.jpeg",
       body: "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.",
 
     }
+  
     ];
 
   }
@@ -84,6 +88,23 @@ export class ContentListComponent implements OnInit {
   ngOnInit(): void {
   } 
 
-  
+
+  //newItem - "8;Lawrence of Arabia;drama;image.jpg;The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.";
+  addItem(newItem: any ) {
+    console.log(newItem.split(";"));
+    let contentDetail = newItem.split(";");
+    let obj = {
+    id: Number(contentDetail[0]),
+    name: contentDetail[1],
+    type: [contentDetail[2]],
+    imageUrl: contentDetail[3],
+    body: contentDetail[4]
+    }
+    console.log(obj);
+    this.movieList.push(obj);
+    console.log(" this.movieList",  this.movieList);
+    this.genre = "Drama";
+    // this.addItemList = newItem;
+  }
 
 }

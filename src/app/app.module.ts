@@ -6,14 +6,17 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { DramaPipe } from './drama.pipe';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { HoverEffectDirective } from './directive/hover-effect.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,   
-    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective
+    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective, CreateContentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
