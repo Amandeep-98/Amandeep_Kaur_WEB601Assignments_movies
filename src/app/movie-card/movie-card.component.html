@@ -1,5 +1,9 @@
 
-    <div class="card">
+  <div>
+    <input type="number" #movieId placeholder="enter movie id">
+    <button (click)="getMovieContent(movieId.value)">Click</button>
+  </div>
+  <div class="card">
  <div class="name"><h4 appHoverEffect>{{ movie.name }}</h4></div>
  <div class="body">{{ movie ? movie.body : "" }}</div>
 

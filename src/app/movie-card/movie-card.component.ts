@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/helper-files/Movie-interface';
+import { ContentServiceService } from '../content-service.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,11 +11,15 @@ export class MovieCardComponent implements OnInit {
 
   @Input() movie: Movie;
 
-  constructor() {
+  constructor(private contentService: ContentServiceService) {
     
    }
 
   ngOnInit(): void {
   }
-
+  getMovieContent(id:any){
+    this.contentService.getContentOfMovieById(2).subscribe((content:any) => {
+      this.movie = content
+    })
+  }
 }

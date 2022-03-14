@@ -1,7 +1,3 @@
-<!-- ; first as isFirstMovieOnList -->
-<app-movie-card *ngFor="let item of movieList | drama:genre" [movie]="item"></app-movie-card>
-
-<!-- <div>{{addItemList}}</div> --> 
-<app-create-content (newItemEvent)="addItem($event)"></app-create-content>
+<app-movie-card *ngFor="let item of movieList; first as isFirstMovieOnList" [movie]="item"></app-movie-card>
 
 

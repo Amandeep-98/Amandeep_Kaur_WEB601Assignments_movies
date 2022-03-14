@@ -8,9 +8,9 @@ import { Movie } from '../helper-files/Movie-interface';
 })
 export class AppComponent {
   
- 
+
   constructor() { 
   }
-  
+
 
 }
