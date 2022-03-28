@@ -11,6 +11,7 @@ import { ContentServiceService } from '../content-service.service';
 export class ContentListComponent implements OnInit {
   
   movieList: Movie[];
+  item: any;
 
 
   constructor(private contentService: ContentServiceService) {
@@ -82,12 +83,40 @@ export class ContentListComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.contentService.getContentMovieList().subscribe((content:any) => {
-      this.movieList = content
-    } );
+  ngOnInit(): void {   
+    this.contentService.getContent().subscribe((content:any)=>{
+      console.log("content", content);
+      this.movieList = content;
+    })
       
   }   
-  
+
+  getMovieContent(id:any){
+    // console.log("movid id");
+    // this.contentService.getContentOfMovieById(Number(id)).subscribe((content:any) => {
+    //   if(id){
+    //     this.movieList = [content]
+    //   }else{
+    //     this.contentService.getContentMovieList().subscribe((content:any) => {      
+    //       this.movieList = content
+    //     } );
+    //   }
+      
+    // })
+  }
+
+  // addContentToList(newContentItem: Content): void {
+  //   this.contentService.addContent(newContentItem)
+  //   .subscribe(newContentFromServer =>
+  //   this.contentList.push(newContentFromServer)
+  //   );
+  //   }
+  addItem(e:any){
+    console.log("add item", e);
+    e.type = [e.type];
+    e.imageUrl = "../../assets/img/" + e.imageUrl;
+    this.movieList.push(e);
+
+  }
 
 }

@@ -1,25 +1,49 @@
 import { Injectable } from '@angular/core';
 import {movieList} from '../../src/app/contentDB/contentDb';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { any } from '../../src/helper-files/Movie-interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentServiceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getContentMovieList() : Observable<any>{
-    return of(movieList);
-    }
+  // getContentMovieList() : Observable<any>{
+  //   return of(movieList);
+  //   }
 
-    getContentOfMovieById(id:any) : Observable<any>{
-      let movieContent;
-      for(let i=0; i<movieList.length; i++){
-        if(movieList[i].id === id){
-          movieContent = movieList[i];
-        }
-      }     
-      return of(movieContent)
+    // getContentOfMovieById(id:any) : Observable<any>{
+    //   let movieContent;
+    //   for(let i=0; i<movieList.length; i++){
+    //     if(movieList[i].id === id){
+    //       movieContent = movieList[i];
+    //     }
+    //   }     
+    //   return of(movieContent)
+    //   }
+
+    private httpOptions = {
+      headers: new HttpHeaders({ 'Content-type':
+      'application/json' })
+      };
+
+    getContent() : Observable<any[]>{
+      return this.http.get<any[]>("api/content");
       }
+      addContent(newContentItem: any):
+Observable<any>{
+return this.http.post<any>("api/content"
+,
+newContentItem, this.httpOptions);
+}
+
+// updateContent(contentItem: Content): Observable<any>{
+//   return this.http.put("api/content"
+//   , contentItem,
+//   this.httpOptions);
+//   }
 }

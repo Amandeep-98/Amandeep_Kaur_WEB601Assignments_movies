@@ -17,9 +17,5 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  getMovieContent(id:any){
-    this.contentService.getContentOfMovieById(2).subscribe((content:any) => {
-      this.movie = content
-    })
-  }
+ 
 }
