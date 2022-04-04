@@ -11,11 +11,18 @@ import { ModifyContentComponentComponent } from './modify-content-component/modi
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "../app/in-memory-data.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ContentCardComponent } from './content-card/content-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,   
-    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective, ModifyContentComponentComponent
+    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective, ModifyContentComponentComponent, ContentCardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +33,15 @@ import { InMemoryDataService } from "../app/in-memory-data.service";
       dataEncapsulation: false,
       delay: 1000,
       }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ContentCardComponent]
 })
 export class AppModule { }
