@@ -5,12 +5,12 @@
  <div class="body">{{ movie ? movie.body : "" }}</div>
 
  <div class="image-center" *ngIf="movie.imageUrl; else noImage">
-    <img [src]="movie ? movie.imageUrl : ''">
+    <img routerLink="/content/{{movie.id}}" [src]="movie ? movie.imageUrl : ''">
   </div>
   
   <ng-template #noImage>
       <div class="image-center">
-        <img  src="../../assets/img/noImagepng.png" alt="">
+        <img routerLink="/content/{{movie.id}}"  src="../../assets/img/noImagepng.png" alt="">
       </div>    
   </ng-template> 
  <div class="type"><span class="tagItem" appHoverEffect *ngFor="let type of movie.type">{{ type }}</span> </div>

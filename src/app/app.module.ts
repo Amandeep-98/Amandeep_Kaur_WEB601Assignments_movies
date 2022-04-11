@@ -18,17 +18,22 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ContentCardComponent } from './content-card/content-card.component';
+import { DisplaycontentComponent } from './displaycontent/displaycontent.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,   
-    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective, ModifyContentComponentComponent, ContentCardComponent
+    ContentListComponent, DramaPipe, MovieCardComponent, HoverEffectDirective, ModifyContentComponentComponent, ContentCardComponent, DisplaycontentComponent, ContentDetailComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
       delay: 1000,
